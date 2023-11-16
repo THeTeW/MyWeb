@@ -1,0 +1,27 @@
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 15px;
+    
+}
+
+.featurette {
+    padding: 20px 0;
+}
+
+.bmi-result {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#bmi-message {
+    
+    font-weight: normal;
+    color: rgb(128, 90, 0); /* You can change the color as needed */
+    font-size: 50px;
+    margin-top: 20px;
+    text-align: center;
+}
+

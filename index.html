@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEME Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Lato", sans-serif
+        }
+
+        .mySlides {
+            display: none
+        }
+
+        .w3-tag,
+        .fa {
+            cursor: pointer
+        }
+
+        .w3-tag {
+            height: 15px;
+            width: 15px;
+            padding: 0;
+            margin-top: 6px
+        }
+       
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Charmonman:wght@700&family=KoHo:wght@200&family=Prompt&display=swap"
+        rel="stylesheet">
+    <style type="text/css">
+        .featurette-heading fw-normal lh-1 {
+            font-family: 'Charmonman', cursive;
+            font-family: 'KoHo', sans-serif;
+            font-family: 'Prompt', sans-serif;
+            ;
+        }
+        .container{
+            font-family: 'Prompt', sans-serif;
+            font-size: 18px;
+        }
+        .nav-tabs{
+            font-weight: bolder;
+        }
+        #bmi-message,
+        #bmr-value,
+        #tdee-value,
+        #caloriesperDay,
+        #caloriesTotal{
+            font-family: 'Prompt', sans-serif;
+            font-size: 18px;
+            color: rgb(0, 26, 255);
+        }
+        #text-h{
+            font-family: 'Prompt', sans-serif;
+            font-size: 20px;
+            font-weight: bolder;
+        }
+    </style>
+    
+
+</head>
+
+<body>
+
+    <!-- Links (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-row w3-large w3-light-grey">
+            <div class="w3-col s3">
+                <a href="#" class="w3-button w3-block" onclick="openTab('home')">Home</a>
+            </div>
+            <div class="w3-col s3">
+                <a href="#bmi" class="w3-button w3-block" onclick="openTab('bmi')">BMI Calculator</a>
+            </div>
+            <div class="w3-col s3">
+                <a href="#bmr" class="w3-button w3-block" onclick="openTab('bmr')">BMR Calculator</a>
+            </div>
+            <div class="w3-col s3">
+                <a href="#kcal" class="w3-button w3-block" onclick="openTab('kcal')">Food Calorie Calculator</a>
+            </div>
+            <script>
+                function openTab(tabName) {
+                    $('.nav-tabs a[href="#' + tabName + '"]').tab('show');
+                }
+            </script>
+        </div>
+    </div>
+
+
+    <!-- Content -->
+    <div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
+
+        <div class="w3-panel">
+            <h1><b>MEME</b></h1>
+            <p>Healthy Calculator</p>
+        </div>
+
+
+        <!-- Slideshow -->
+        <div class="w3-container">
+            <div class="w3-display-container mySlides" style="display: none;">
+                <img src="/images/fitness-body.jpg" style="width:100%">
+                <div class="w3-display-topleft w3-container w3-padding-32">
+                   
+
+                </div>
+            </div>
+            <div class="w3-display-container mySlides" style="display: none;">
+                <img src="/images/bmr.png" style="width:100%">
+                <div class="w3-display-middle w3-container w3-padding-32">
+                    
+
+                </div>
+            </div>
+            <div class="w3-display-container mySlides" style="display: block;">
+                <img src="/images/kcal.png" style="width:100%">
+                <div class="w3-display-topright w3-container w3-padding-32">
+                   
+                </div>
+            </div>
+
+            <!-- Slideshow next/previous buttons -->
+            <div class="w3-container w3-dark-grey w3-padding w3-xlarge">
+                <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left w3-hover-text-teal"></i>
+                </div>
+                <div class="w3-right" onclick="plusDivs(1)"><i class="fa fa-arrow-circle-right w3-hover-text-teal"></i>
+                </div>
+
+                <div class="w3-center">
+                    <span class="w3-tag demodots w3-border w3-transparent w3-hover-white"
+                        onclick="currentDiv(1)"></span>
+                    <span class="w3-tag demodots w3-border w3-transparent w3-hover-white"
+                        onclick="currentDiv(2)"></span>
+                    <span class="w3-tag demodots w3-border w3-transparent w3-hover-white w3-white"
+                        onclick="currentDiv(3)"></span>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <!--TAB-->
+        <div class="container">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#bmi">เครื่องคำนวณหาค่าดัชนีมวลกาย[BMI]</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#bmr">เครื่องคำนวณการเผาผลาญพลังงาน[BMR]</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#kcal">เครื่องคำนวณแคลอรี่อาหาร[kCAL]</a>
+                </li>
+            </ul>
+            <script>
+                function openTab(tabName) {
+                    $('.nav-tabs a[href="#' + tabName + '"]').tab('show');
+                }
+            </script>
+        </div>
+
+        <div class="tab-content">
+            <!--bmi-->
+            <div id="bmi" class="container tab-pane active">
+                <div class="row featurette">
+                    <div class="col-md-7"> <!--ฝั่งซ้าย-->
+                        <h2 id="text-h" class="featurette-heading fw-normal lh-1">ค่าดัชนีมวลกาย (Body Mass Index: BMI)</h2>
+                        <hr>
+                        <p class="fs-6">
+                            &nbsp;&nbsp;&nbsp;&nbsp;แอปนี้ช่วยคำนวณ Body Mass Index (BMI) ของคุณ
+                            เพื่อวัดน้ำหนักที่สมดุลกับส่วนสูงของคุณ ซึ่งเป็นวิธีที่ดีในการประเมินสุขภาพทางกายของคุณ
+                        </p>
+                        <label for="weightBmi">น้ำหนัก (kg):</label>
+                        <input type="number" id="weightBmi" step="0.1">
+                        <br>
+                        <label for="heightBmi">ส่วนสูง (cm):</label>
+                        <input type="number" id="heightBmi" step="0.1">
+                        <br>
+                        <button type="button" class="btn btn-primary" onclick="calculateBMI()">คำนวณ BMI</button>
+                        <hr>
+                        <p class="bmi-result"> Your BMI: <span id="bmi-value"></span> </p>
+                        <p id="bmi-message"></p>
+                                                
+                        <script src="script.js"></script>
+                    </div>
+
+
+                    <div class="col-md-5"><!--ฝั่งขวา-->
+                        <div id="result" class="bmi-result">
+                            <img id="bmi-image" src="images/initial_image.jpg" alt="Initial Image" class="img-fluid"
+                                style="display: block;">
+                            <scrip src="script.js"></scrip>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--bmr-->
+            <div id="bmr" class="container tab-pane fade">
+                <div class="row featurette">
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading fw-normal lh-1">Step 1 : BMR</h2>
+                        <label for="genderBmr">เพศ:</label>
+                        <select id="genderBmr">
+                            <option value="male">ชาย</option>
+                            <option value="female">หญิง</option>
+                        </select>
+                        <br>
+                        <label for="weightBmr">น้ำหนัก (kg):</label>
+                        <input type="number" id="weightBmr" step="0.1">
+
+                        <br>
+                        <label for="heightBmr">ส่วนสูง (cm):</label>
+                        <input type="number" id="heightBmr" step="0.1">
+                        <br>
+                        <label for="ageBmr">อายุ:</label>
+                        <input type="number" id="ageBmr">
+                        <br>
+                        <button type="button" class="btn btn-primary" onclick="calculateBMR()">คำนวณ
+                            BMR</button><br>
+
+                        <div id="bmr-result" class="bmr-result">
+                            อัตราการเผาผลาญพลังงานในแต่ละวัน: <span id="bmr-value"></span> kcal
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-5">
+                        <!--กล่องขวา-->
+                        <p> <strong>BMR ย่อมาจาก Basal Metabolic Rate
+                            หรือเราสามารถเรียกได้ว่าเป็นอัตราการเผาผลาญพลังงานในแต่ละวัน</strong>
+                            โดยค่าพลังงานนี้ร่างกายจะใช้ในการขับเคลื่อนระบบเเละควบคุมอวัยวะต่างๆ ในร่างกายค่ะ
+                            เรามาหาค่าพลังงานที่ใช้ในส่วนนี้กันก่อน โดยการกรอกข้อมูลในเครื่องคำนวณ
+                        </p>
+                    </div>
+                </div>
+                <hr>
+
+                <!--TDEE-->
+                <div class="row featurette">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <h3>Step 2 : TDEE</h3>
+                            <label for="activityFactor">กิจกรรมในแต่ละวัน:</label>
+                            <select class="form-control" id="activityFactor">
+                                <option value="1.2">ทำงานเเบบนั่งอยู่กับที่</option>
+                                <option value="1.375">ออกกำลังกาย หรือเล่นกีฬา เเบบเบาๆ 1-3 วันต่อสัปดาห์
+                                </option>
+                                <option value="1.55">ออกกำลังกาย หรือเล่นกีฬา ความหนักปานกลาง 3-5 วันต่อสัปดาห์
+                                </option>
+                                <option value="1.725">ออกกำลังกาย หรือเล่นกีฬา หนัก 6-7 วันต่อสัปดาห์
+                                </option>
+                                <option value="1.9">ออกกำลังกาย หรือเล่นกีฬา หนัก เเบบการซ้อมเพื่อเเข่งขัน
+                                    เป็นระจำทุกวัน</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="calculateTDEE()">Calculate
+                            TDEE</button>
+                       <br> <p> อัตราการเผาผลาญพลังงานในแต่ละวันและเผาผลาญส่วนที่เพิ่มเติม: <span id="tdee-value"></span> kcal/day</p>
+                        
+                    </div>
+
+                    <div class="col-md-5">
+                        <!--กล่องขวา-->
+                        <p>หลังจากเราได้ค่าการเผาผลาญ (ฺBMR) ที่เป็นพลังงานเพียวๆ เเบบไม่ได้ทำกิจกรรมอะไรเเล้ว
+                            เราก็จะมาเพิ่มในส่วนของกิจกรรมอื่นๆ ตามลักษณะการใช้ชีวิต เช่น การทำกิจกรรมนอกบ้าน
+                            หรือการไปออกกำลังกาย เพื่อหาค่าการเผาผลาญส่วนที่เพิ่มเติมลงไป <strong>(TDEE)
+                            TDEE คือ Total Daily Energy Expenditure หรือ ค่าของพลังงานที่ใช้กิจกรรมอื่นในแต่ละวัน</strong>
+                            ค่าที่ออกมาจะได้ค่าของการเผาผลาญพลังงานที่เป็นค่าจากการทำกิจกรรมร่วมกัน
+                        </p>
+
+                    </div>
+                </div>
+                <hr>
+
+
+
+                <div class="row featurette">
+                    <div class="col-md-7">
+                        <h3>Step 3 : Diet Planning</h3>
+                        <div class="form-group">
+                            <label for="targetWeight">เป้าหมายน้ำหนักที่ต้องการ (kg):</label>
+                            <input class="form-control" type="number" id="targetWeight" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="days">จำนวนวัน:</label>
+                            <input class="form-control" type="number" id="days">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="planDiet(),calculateBMR()">Plan
+                            Diet</button>
+                        <p>ปริมาณพลังงานที่ต้องลดต่อวัน (kcal): <span id="caloriesperDay"></span> kcal</p>
+                        <p>ปริมาณพลังงานที่แนะนำต่อวัน (kcal): <span id="caloriesTotal"></span> kcal</p>
+                        
+                    </div>
+                    <div class="col-md-5">
+                        <p> การกำหนดเป้าหมายคร่าวๆเพื่อให้เราทราบว่าถ้าหากเราต้องการที่จะลดน้ำหนักให้ได้ตามระยะเวลาที่วางไว้
+                            เราควรจะลดการรับพลังงานจากอาหารให้เหลือวันละเท่าไหร่
+                            <strong>ผลจากเครื่องคำนวณนี้จะเป็นพลังงานที่ต้องลด เเละ ปริมาณที่ต้องได้เพิ่มต่อวัน</strong>
+                            เเต่ต้องเตือนไว้ว่า ค่าที่ได้เป็นค่าที่ได้จากการคำนวณจากสูตรทางคณิตศาสตร์
+                            ควรจะยึดไว้เป็นกรอบไว้คร่าวๆ เพื่อวางเเผนการลดน้ำหนักให้มีประสิทธิภาพ
+                            เพราะร่างกายเเต่ละคนไม่เหมือนกัน ระยะเวลาเเละผลลัพธ์อาจต่างกันค่ะ</p>
+                    </div>
+                </div>
+
+
+                <script src="bmr.js"></script>
+            </div>
+
+
+
+            <!--Kcal-->
+            <div id="kcal" class="container tab-pane fade">
+                <script>
+                    $(document).ready(function () {
+                        // Load content for Tab 3 from external file
+                        $("#kcal").load("kcal2.html");
+                    });
+                </script>
+            </div>
+            <hr>
+        </div>
+
+
+    </div>
+    <hr>
+    <!-- Footer -->
+
+    <footer class="w3-container w3-padding-32 w3-light-grey w3-center">
+        <h4><strong>MEME</strong></h4>
+        <p>Healthy Calculator</p>
+
+        <a href="#" class="w3-button w3-black w3-margin"><i class="fa fa-arrow-up w3-margin-right"></i>To the
+            top</a>
+        <div class="w3-xlarge w3-section">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </div>
+        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+                class="w3-hover-text-green">w3.css</a></p>
+    </footer>
+    <script>
+        // Slideshow
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demodots");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length };
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " w3-white";
+        }
+    </script>
+</body>
+
+</html>
